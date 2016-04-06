@@ -6,8 +6,8 @@ var Promise = require('bluebird')
 module.exports = streamToPromise
 
 function streamToPromise (stream) {
-  if (stream.readable) return fromReadable(stream)
   if (stream.writable) return fromWritable(stream)
+  if (stream.readable) return fromReadable(stream)
   return Promise.resolve()
 }
 
